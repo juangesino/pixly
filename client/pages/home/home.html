@@ -1,0 +1,95 @@
+<template name="home">
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="panel panel-white panel-shadow">
+        <div class="panel-heading">
+          Your Pixels
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Hits</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each pixels}}
+                <tr>
+                  <td class="js-clickable text-info">{{this.name}}</td>
+                  <td class="js-clickable">{{this.views}}</td>
+                  <td style="text-align: right;">
+                    <input class="js-pixel-toggle" type="checkbox" data-toggle="toggle" data-onstyle="success" {{getActiveCheck this}}>
+                  </td>
+                </tr>
+              {{/each}}
+              {{#if isEmpty pixels}}
+                <tr style="text-align: center;">
+                  <td colspan="3">No pixels yet</td>
+                </tr>
+              {{/if}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button href="#" data-toggle="modal" data-target="#new-pixel-modal" class="btn btn-danger btn-fab btn-float"><span class="fa fa-plus"></span></button>
+
+  <div id="new-pixel-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">New Pixel</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-dismissible alert-danger" id="new-pixel-error" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <span>We need a name for this pixel.</span>
+          </div>
+          <form class="js-add-pixel">
+            <div class="form-group js-name-form-group">
+              <label for="name">Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="name" autocomplete="off" required>
+              <span id="helpBlock" class="help-block">Give your pixel a relevant name.</span>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success btn-block btn-lg">Create</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="show-pixel-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="showPixelTitle">Pixel Name</h4>
+        </div>
+        <div class="modal-body">
+          <h5>URL</h5>
+          <p id="showPixelUrl"></p>
+          <br>
+          <h5>Image Tag</h5>
+          <pre id="showPixelImg">&lt;img src="" alt=""/&gt;</pre>
+          <br>
+          <h5>Total Hits</h5>
+          <p id="showPixelViews">0</p>
+          <br>
+          <br>
+          <button id="removePixel" class="btn btn-danger btn-block"><i class="fa fa-trash"></i> Delete Pixel</button>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

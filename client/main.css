@@ -1,0 +1,37 @@
+body {
+  background: #a5acb8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #a5acb8, #b2b5b9);
+  background: -moz-linear-gradient(right, #a5acb8, #b2b5b9);
+  background: -o-linear-gradient(right, #a5acb8, #b2b5b9);
+  background: linear-gradient(to left, #a5acb8, #b2b5b9);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+td {
+  cursor: pointer;
+}
+
+.panel-shadow {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.panel-white > .panel-heading {
+  color: #333;
+  background-color: #ffffff;
+  border-color: #ddd;
+}
+
+.btn-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 25px 30px 25px 30px;
+  border-radius: 100%;
+  box-shadow: 5px 0px 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.btn, .btn:hover, .btn:active, .btn:focus {
+  outline: none;
+}
